@@ -8,7 +8,7 @@
 */
 
 html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+iframe, h1, h2, h2_bordered,h3, h4, h5, h6, p, p_bordered, blockquote,
 pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
@@ -250,7 +250,11 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	p_bordered {
+		margin: 0 0 2em 0;
+	}
+
+	h1, h2, h2_bordered, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-family: Raleway, Helvetica, sans-serif;
 		font-weight: 700;
@@ -259,22 +263,26 @@ input, select, textarea {
 		text-transform: uppercase;
 	}
 
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		h1 a, h2 a, h2_bordered a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			text-decoration: none;
 			border-bottom: 0;
 		}
 
-		h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+		h1 span, h2 span, h2_bordered span, h3 span, h4 span, h5 span, h6 span {
 			font-weight: 200;
 		}
 
-		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+		h1.major, h2.major, h2_bordered.major, h3.major, h4.major, h5.major, h6.major {
 			padding-bottom: 1em;
 			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
 		}
 
 	h2 {
+		font-size: 1.2em;
+	}
+
+	h2_bordered {
 		font-size: 1.2em;
 	}
 
@@ -297,6 +305,10 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		h2 {
+			font-size: 1em;
+		}
+
+		h2_bordered {
 			font-size: 1em;
 		}
 
@@ -2998,7 +3010,7 @@ input, select, textarea {
 		display: flex;
 		-moz-flex-wrap: wrap;
 		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
+		/* -ms-flex-wrap: wrap; */
 		flex-wrap: wrap;
 		margin: 0 0 2em 0;
 	}
@@ -3512,6 +3524,10 @@ input, select, textarea {
 					font-size: 0.8em;
 				}
 
+				#banner p_bordered {
+					font-size: 0.8em;
+				}
+
 		}
 
 		body.is-preload #banner .logo {
@@ -3546,6 +3562,18 @@ input, select, textarea {
 			filter: blur(2px);
 		}
 
+		body.is-preload #banner p_bordered {
+			opacity: 0;
+			-moz-transform: translateX(0.5em);
+			-webkit-transform: translateX(0.5em);
+			-ms-transform: translateX(0.5em);
+			transform: translateX(0.5em);
+			-moz-filter: blur(2px);
+			-webkit-filter: blur(2px);
+			-ms-filter: blur(2px);
+			filter: blur(2px);
+		}
+
 /* Wrapper */
 
 	#wrapper > header {
@@ -3564,6 +3592,14 @@ input, select, textarea {
 			padding-bottom: 0.4em;
 		}
 
+		#wrapper > header h2_bordered {
+			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			font-size: 2em;
+			margin-bottom: 0.8em;
+			padding-bottom: 0.4em;
+			text-shadow: 1px 1px 1px #000000;
+		}
+
 		#wrapper > header p {
 			font-family: Raleway, Helvetica, sans-serif;
 			font-size: 1em;
@@ -3571,6 +3607,16 @@ input, select, textarea {
 			letter-spacing: 0.1em;
 			line-height: 2;
 			text-transform: uppercase;
+		}
+
+		#wrapper > header p_bordered {
+			font-family: Raleway, Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: 200;
+			letter-spacing: 0.1em;
+			line-height: 2;
+			text-transform: uppercase;
+			text-shadow: 3px 3px 3px #000000;
 		}
 
 	@media screen and (max-width: 1280px) {
@@ -3619,6 +3665,10 @@ input, select, textarea {
 			}
 
 			#wrapper > header p {
+				font-size: 0.8em;
+			}
+
+			#wrapper > header p_bordered {
 				font-size: 0.8em;
 			}
 
