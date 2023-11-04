@@ -3578,6 +3578,7 @@ input, select, textarea {
 
 	#wrapper > header {
 		padding: 11em 0 2.25em 0 ;
+		overflow-y: hidden;
 	}
 
 		#wrapper > header .inner {
