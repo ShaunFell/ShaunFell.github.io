@@ -3395,7 +3395,7 @@ input, select, textarea {
 
 		#banner .inner {
 			margin: 0 auto;
-			width: 55em;
+			width: 60em;
 		}
 
 		#banner .logo {
@@ -3456,7 +3456,7 @@ input, select, textarea {
 			}
 			img {
 			  border: solid 1px black;
-			  margin-left: 8.2em;
+			  margin-left: 18em;
 			}
 		}
 
