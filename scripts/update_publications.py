@@ -141,7 +141,7 @@ class Publication:
     description: str | None = None
     thumbnail: str | None = None
     code: str | None = None
-    featured: bool = False
+    featured: bool = False  # set True for new papers when they are added
     hidden: bool = False
 
     def to_yaml_dict(self) -> dict[str, Any]:
@@ -760,6 +760,7 @@ def main(argv: list[str] | None = None) -> int:
             (updated if changed else unchanged).append((pub.title, changed))
         else:
             log(f"NEW: {pub.title}  [{pub.id}]")
+            pub.featured = True  # newest work goes on the home page; unfeature by hand if you prefer
             if not args.dry_run:
                 if not args.no_thumbnails:
                     pub.thumbnail = make_thumbnail(pub, cfg["thumb_dir"])
