@@ -1,0 +1,25 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.profile.short_name }}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+      <svg class="icon icon--menu"><use href="#i-menu"/></svg>
+      <svg class="icon icon--close"><use href="#i-close"/></svg>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      {% assign items = "Research:/#research|Publications:/publications/|Writing:/writing/|CV:/cv/|Contact:/#contact" | split: "|" %}
+      {% for item in items %}
+        {% assign parts = item | split: ":" %}
+        {% assign href = parts[1] %}
+        {% assign current = false %}
+        {% if href == page.url %}{% assign current = true %}{% endif %}
+        {% if page.collection == "writing" and href == "/writing/" %}{% assign current = true %}{% endif %}
+        <a href="{{ href | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+      {% endfor %}
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon icon--sun"><use href="#i-sun"/></svg>
+        <svg class="icon icon--moon"><use href="#i-moon"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>

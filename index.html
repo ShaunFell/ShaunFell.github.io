@@ -1,175 +1,113 @@
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Shaun Fell</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+---
+layout: default
+title: Shaun D. B. Fell
+description: >-
+  Theoretical physicist working on black holes, fundamental fields, numerical
+  relativity and the geometry of warp drives. Lead Scientist at Applied Physics.
+image: /assets/img/profile.jpg
+body_class: home
+---
+{% assign p = site.data.profile %}
+{% assign pubs = site.data.publications | where_exp: "x", "x.hidden != true" %}
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-				
+<section class="hero">
+  <div class="container hero__inner">
+    <div>
+      <p class="hero__kicker">{{ p.title }}</p>
+      <h1 class="hero__name">{{ p.name }}</h1>
+      <p class="hero__role">{{ p.position }} at <a href="{{ p.affiliation_url }}" rel="noopener" target="_blank">{{ p.affiliation }}</a></p>
+      <p class="hero__pitch">{{ p.pitch }}</p>
+      <ul class="link-list" aria-label="Profiles">
+        {% for l in p.links %}
+        <li><a href="{{ l.url }}" {% unless l.url contains 'mailto:' %}rel="me noopener" target="_blank"{% endunless %}><svg class="icon"><use href="#i-{{ l.icon }}"/></svg><span>{{ l.label }}</span></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <img class="hero__photo" src="{{ p.photo | relative_url }}" alt="{{ p.photo_alt }}" width="256" height="256" fetchpriority="high">
+  </div>
+</section>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Shaun Fell</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+<section class="section" id="about">
+  <div class="container split">
+    <div class="prose">
+      <h2 class="section__title">About</h2>
+      {{ p.about | markdownify }}
+      <p><a class="button button--ghost" href="{{ '/cv/' | relative_url }}">Read my CV <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+    </div>
+    <div>
+      <h2 class="section__title section__title--small">News</h2>
+      <ul class="news">
+        {% for n in site.data.news limit: 6 %}
+        <li><span class="news__when">{{ n.when }}</span><span>{% if n.url %}<a href="{{ n.url }}" {% unless n.url contains site.url %}rel="noopener" target="_blank"{% endunless %}>{{ n.text }}</a>{% else %}{{ n.text }}{% endif %}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="pages/CV.html">C.V.</a></li>
-								<li><a href="pages/WarpDrive.html">Warp Drives</a></li>
-								<li><a href="pages/BlackHoles.html">Black Holes</a></li>
-								<li><a href="pages/Gravity.html">Gravity</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
+<section class="section section--alt" id="research">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">Research</h2>
+        <p class="section__lead">Three threads run through my work: black holes as laboratories for new physics, the simulation tools needed to study them, and the question of whether spacetime can be engineered.</p>
+      </div>
+    </div>
+    <ul class="card-grid">
+      {% for r in p.research %}
+      <li class="card">
+        <a class="card__link" href="{{ r.link | relative_url }}" {% if r.link contains 'http' %}rel="noopener" target="_blank"{% endif %}>
+          <img class="card__image" src="{{ r.image | relative_url }}" alt="" loading="lazy">
+          <span class="card__body">
+            <span class="card__title">{{ r.title }}</span>
+            <span class="card__text">{{ r.summary }}</span>
+            <span class="card__cta">Learn more <svg class="icon"><use href="#i-arrow"/></svg></span>
+            {% if r.image_credit %}<span class="card__credit">Image: {{ r.image_credit }}</span>{% endif %}
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2><span style="position:absolute; bottom: 0">Shaun D. B. Fell</span><span class="myImage"><img src="images/Smaller_Crop.png" alt="" width="300", height="300"/></span> </h2> 
-							<p>Hi! Welcome to my site.</p>
-						</div>
-					</section>
+<section class="section" id="publications">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">Selected publications</h2>
+        <p class="section__lead">Kept up to date automatically from INSPIRE-HEP. Thumbnails are the first page of each paper.</p>
+      </div>
+      <a class="section__more" href="{{ '/publications/' | relative_url }}">All {{ pubs | size }} publications <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="pub-list">
+      {% assign featured = pubs | where: "featured", true %}
+      {% if featured.size == 0 %}{% assign featured = pubs %}{% endif %}
+      {% for pub in featured limit: site.publications.featured_count %}
+        {% include publication.html pub=pub %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-				<!-- Wrapper -->
-					<section id="wrapper">
-
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/WarpDriveImage.png" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Warp drives: The limitless future</h2>
-										<p>Without trancending the speed of light barrier, there is little hope for humanity to travel the universe. See how I am tackling this problem by determing how humanity can become the architects of space and time.</p>
-										<a href="pages/WarpDrive.html" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/Black_hole.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Black holes and their immense beauty</h2>
-										<p>"The darkest things in the universe simultaneously shine the brightest". This phrase beautifully captures the bewildering and often times paradoxical existence of black holes. Even though I study them everyday, they never cease to astonish me.</p>
-										<a href="pages/BlackHoles.html" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
-
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/EinsteinRing.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Gravity has a big problem</h2>
-										<p>How do we know our theory of gravity is wrong and why is it unreasonably effective at describing the universe? What makes the theory so beautiful? See why gravity stands out from the other forces of the universe and why I have dedicated more than a decade of my life to studying it.</p>
-										<a href="pages/Gravity.html" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
-
-						<!-- Four -->
-							<section id="four" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">Portfolio</h2>
-									<p>My research has spanned many areas of gravity, including the interactions between dark matter and black holes, detecting exoplanets using satellite missions, and new methods of spacecraft propulsion using fundamental fields. Find a list of my published papers below!</p>
-									<section class="features">
-										<article>
-											<a href="#" class="image"><img src="images/GRBoondiPaper.png" alt="" /></a>
-											<h3 class="major">GRBoondi: A code for evolving Generalized Proca theories on arbitrary backgrounds</h3>
-											<p>GRBoondi is a brand new numerical relativity code tailored to the study of generalized Proca fields in arbitrary spacetimes. This is a powerful new library that will enable the rapid study of any one of the generalized Proca theories.</p>
-											<p><sub>Accepted to the Journal of Open Source Software</sub></p>
-											<a href="https://joss.theoj.org/papers/10.21105/joss.06888" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/ProcadSPaper.png" alt="" /></a>
-											<h3 class="major">Proca in an Expanding Universe</h3>
-											<p>The superradiant growth of a massive vector field surrounding a rapidly spinning black hole in an expanding universe is studied, further elucidating the behavior of massive vector fields in our own universe.</p>
-											<p><sub>Accepted to the journal Progress in Physics</sub></p>
-											<a href="https://doi.org/10.1002/prop.202400110" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/FundamentalFields.png" alt=""/></a>
-											<h3 class="major">Detecting Fundamental Vector Fields with LISA</h3>
-											<p>Leveraging black hole collisions as cosmic-scale particle detectors allows us to study fundamental matter fields using astrophysical dynamics.</p>
-											<p><sub>Accepted to the journal Physical Review D</sub></p>
-											<a href="https://doi.org/10.1103/physrevd.108.083010" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/GravWaves.png" alt="" /></a>
-											<h3 class="major">Gravitational Waves in Full, Non-Linear General Relativity</h3>
-											<p>Asymptotic symmetries of spacetime place strong and interesting constraints on gravitational waveforms. This book provides an introduction to the necessary mathematics to understand gravitational waves in full, non-linear general relativity. </p>
-											<a href="https://arxiv.org/abs/2201.11634" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/F(Q).png" alt="" /></a>
-											<h3 class="major">Black holes in f(Q) Gravity</h3>
-											<p>Differential geometry allows for different, but equal, descriptions of gravity. Here we investigate black holes described not by curvature of spacetime, but by another mathematical property.</p>
-											<a href="https://arxiv.org/abs/2109.03174v1" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/WarpDrives.png" alt="" /></a>
-											<h3 class="major">Positive energy warp drive from hidden geometric structures</h3>
-											<p>Certain geometric structures lay at the heart of the most common model for warp drives, allowing for greater insight into the feasibility of human-created warp bubbles.</p>
-											<p><sub>Accepted to the journal Classical and Quantum Gravity</sub></p>
-											<a href="https://iopscience.iop.org/article/10.1088/1361-6382/ac0e47" class="special">Learn more</a>
-										</article>
-									</section>
-									<ul class="actions">
-										<li><a href="https://orcid.org/0000-0002-8059-0359" class="button">Browse All</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="pages/CV.html" class="button primary">or check out my C.V!</a></li>
-									</ul>
-								</div>
-							</section>
-
-					</section>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-						
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									Heidelberg, Germany<br />
-								<li class="icon solid fa-envelope">shaundbfell (at) gmail.com</li>
-								<li class="icon solid fa-envelope"><a href="https://www.linkedin.com/in/shaun-fell-a05779153/">Linkedin</a></li>
-								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/phitness.and.fysics/">Instagram</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+<section class="section section--alt" id="writing">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">Writing</h2>
+        <p class="section__lead">Longer pieces for a general audience on the questions that keep me up at night.</p>
+      </div>
+      <a class="section__more" href="{{ '/writing/' | relative_url }}">All writing <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ul class="card-grid card-grid--3">
+      {% for e in site.writing limit: 3 %}
+      <li class="card">
+        <a class="card__link" href="{{ e.url | relative_url }}">
+          {% if e.image %}<img class="card__image" src="{{ e.image | relative_url }}" alt="" loading="lazy">{% endif %}
+          <span class="card__body"><span class="card__title">{{ e.title }}</span><span class="card__text">{{ e.subtitle }}</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

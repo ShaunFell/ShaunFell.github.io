@@ -1,0 +1,89 @@
+name: Deploy site
+
+# Works with either GitHub Pages mode:
+#   * "Deploy from a branch" (the current setting): GitHub builds the site itself
+#     on every push, but it ignores pushes made by GITHUB_TOKEN, i.e. the
+#     publication bot. So when this workflow is called by the bot, it asks Pages
+#     for a build explicitly.
+#   * "GitHub Actions": this workflow builds the site and deploys the result.
+
+on:
+  push:
+    branches: [main, source]
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  mode:
+    runs-on: ubuntu-latest
+    outputs:
+      build_type: ${{ steps.pages.outputs.build_type }}
+    steps:
+      - id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          type=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || echo unknown)
+          echo "build_type=$type" >> "$GITHUB_OUTPUT"
+          echo "GitHub Pages build type: $type"
+          if [ "$type" = unknown ]; then
+            echo "::warning::Could not read the Pages configuration. Is GitHub Pages enabled for this repository?"
+          fi
+
+  # Branch mode: request a Pages build (only needed when GitHub did not trigger one itself).
+  request-build:
+    needs: mode
+    if: needs.mode.outputs.build_type == 'legacy' && github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds"
+          echo "Requested a GitHub Pages build of the configured source branch."
+
+  # Actions mode: build with the same github-pages gem and deploy the artifact.
+  build:
+    needs: mode
+    if: needs.mode.outputs.build_type == 'workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # When called from update-publications.yml the triggering SHA is the
+          # commit *before* the bot's push, so always check out the branch tip.
+          ref: ${{ github.ref_name }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - uses: actions/configure-pages@v5
+        id: pages
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --safe --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: [mode, build]
+    if: needs.mode.outputs.build_type == 'workflow'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

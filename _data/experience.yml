@@ -1,0 +1,22 @@
+- role: Lead Scientist
+  org: Applied Physics
+  org_url: https://appliedphysics.org
+  location: New York, USA
+  start: 2024
+  end: present
+  summary: Leads research on warp drive physics and spacetime engineering.
+- role: Doctoral Researcher
+  org: Institute for Theoretical Physics, Heidelberg University
+  org_url: https://www.thphys.uni-heidelberg.de
+  location: Heidelberg, Germany
+  start: 2021
+  end: 2024
+  summary: >-
+    Superradiant instabilities of massive vector fields around rotating black
+    holes, gravitational-wave signatures for LISA, and numerical relativity
+    code development.
+- role: Research Assistant
+  org: Center for Experimental Nuclear Physics and Astrophysics, University of Washington
+  location: Seattle, USA
+  start: 2016
+  end: 2019

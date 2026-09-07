@@ -1,0 +1,278 @@
+# Publications. This file is maintained by scripts/update_publications.py
+# (run weekly by GitHub Actions). You may edit it by hand: `description`,
+# `thumbnail`, `featured`, `hidden`, `code` and `title` are never overwritten
+# by the script. Citation counts and journal details are refreshed automatically.
+# Last updated: 2026-09-07
+- id: '2608.10800'
+  title: Radiative Signatures from Warp Drives Traveling Through the Earth's Atmosphere
+  authors:
+  - S. D. B. Fell
+  - A. Loeb
+  year: 2026
+  date: '2026-08-11'
+  type: preprint
+  arxiv: '2608.10800'
+  inspire: 3190030
+  citations: 0
+  url: https://arxiv.org/abs/2608.10800
+  featured: true
+  hidden: false
+  thumbnail: /assets/img/publications/2608.10800.png
+  description: If a warp drive ever flew through Earth's atmosphere, would we notice? Our simulations
+    show that a bubble of warped spacetime moving at relativistic speed would light up the air around
+    it with more than a terawatt of power, giving spacetime-based propulsion a distinctive and searchable
+    signature.
+  abstract: We investigate the observable signatures of zero ADM mass warp drive spacetimes traversing
+    Earth's atmosphere. Numerical simulations indicate that an aircraft-scale spacetime bubble moving
+    at relativistic velocities would have a pronounced observational signature, where interaction with
+    the atmosphere can produce luminosities exceeding one terawatt. The signature of a spacetime bubble
+    at rest or moving at low velocity relative to the Earth would not generate such extreme luminosities.
+    These results establish observational constraints on spacetime-based propulsion operating within the
+    terrestrial environment and provide a framework for identifying potential high-velocity signatures.
+    In particular, a warp drive traveling through the atmosphere at speeds exceeding approximately 10%
+    of the speed of light would produce a unique brilliant glow.
+- id: '2406.11299'
+  title: Proca in an Expanding Universe
+  authors:
+  - S. D. B. Fell
+  - L. Heisenberg
+  year: 2024
+  date: '2024-06-17'
+  type: article
+  venue: Fortschritte der Physik
+  volume: '72'
+  pages: '2400110'
+  doi: 10.1002/prop.202400110
+  arxiv: '2406.11299'
+  inspire: 2799316
+  citations: 3
+  url: https://arxiv.org/abs/2406.11299
+  featured: false
+  hidden: false
+  thumbnail: /assets/img/publications/2406.11299.png
+  description: Massive vector fields can grow explosively around spinning black holes, but almost every
+    study of this effect ignores the dark energy that fills our universe. Using GRBoondi, we show that
+    adding a cosmological constant can turn a growing instability into a decaying one, changing what these
+    systems would look like.
+  abstract: The superradiant growth of massive vector fields in rotating black hole spacetimes has garnered
+    significant attention in recent literature. However, the majority of these studies overlook the influence
+    of a cosmological constant, which likely constitutes the primary energy content of our universe. In
+    this paper, we extend recent research by incorporating a cosmological constant into the Einstein+Proca
+    system and numerically evolving the resulting equations of motion. Utilizing the newly released GRBoondi
+    numerical relativity code, designed specifically for the numerical evolution of (generalized) Proca
+    fields, we discover that parameters causing a growing instability in the Lambda = 0 scenario transition
+    to a decaying state when Lambda > 0. This results in a more intriguing phenomenology. These simulations
+    pave the way for future full Einstein+Proca simulations to explore the secular decay of the resultant
+    cloud from gravitational emission.
+- id: '2405.01348'
+  title: 'GRBoondi: A code for evolving Generalized Proca theories on arbitrary backgrounds'
+  authors:
+  - S. D. B. Fell
+  - L. Heisenberg
+  year: 2024
+  date: '2024-05-02'
+  type: software
+  venue: Journal of Open Source Software
+  volume: '9'
+  pages: '6888'
+  doi: 10.21105/joss.06888
+  arxiv: '2405.01348'
+  inspire: 2782899
+  citations: 4
+  url: https://arxiv.org/abs/2405.01348
+  code: https://github.com/ShaunFell/GRBoondi
+  featured: true
+  hidden: false
+  thumbnail: /assets/img/publications/2405.01348.png
+  description: Simulating exotic fields in curved spacetime usually means writing a new code from scratch.
+    GRBoondi is an open-source numerical relativity code that evolves any generalized Proca theory on
+    any fixed background, so a new model can be studied in days rather than months.
+  abstract: While numerical simulations offer unparalleled precision and robustness in studying complex
+    physical systems, their execution is often hindered by complexity, costliness, and time consumption
+    due to the intricate equations involved. This challenge is already encountered in General Relativity,
+    where non-flat spacetimes exacerbate the computational burden. This complexity is further intensified
+    when dealing with additional degrees of freedom. To address this challenge head-on, we introduce GRBoondi,
+    a groundbreaking fixed-background numerical relativity code designed to provide a unified interface
+    for numerically solving Generalized Proca theories. GRBoondi grants users the ability to make arbitrary
+    modifications to the Proca equations of motion on any background, providing a robust and versatile
+    tool for exploring diverse classes of Generalized Proca theories. This letter serves as part of the
+    submission of GRBoondi to the Journal of Open Source Software. For access to the code, please visit
+    https://github.com/ShaunFell/GRBoondi.git.
+- id: 10.11588/heidok.00035613
+  title: 'Celestial Beacons: How Black Holes Illuminate the Path to Vector Dark Matter'
+  authors:
+  - S. D. B. Fell
+  year: 2024
+  date: '2024-01-01'
+  type: thesis
+  venue: PhD thesis, Heidelberg University
+  doi: 10.11588/heidok.00035613
+  inspire: 2859245
+  citations: 0
+  url: https://doi.org/10.11588/heidok.00035613
+  featured: false
+  hidden: false
+  thumbnail: /assets/img/publications/10.11588-heidok.00035613.png
+  description: 'My doctoral thesis: a set of models and simulation tools for dark matter interacting with
+    dynamical black holes, and forecasts of what next-generation gravitational-wave observatories could
+    learn from them.'
+  abstract: The inception of gravitational wave astronomy has plunged astrophysical sciences into a new
+    era. Gravitational wave signals sourced by strong gravity regimes provide enormous information aboutthe
+    surrounding environments from which they came. This allows remarkably powerful studies tobe performed
+    regarding the fundamental nature of gravity, dark energy, and dark matter. Thesecurrent and future
+    studies require very high accuracy and precision in the physical models theydevelop in order to extract
+    all potential information from observed data. In particular, due to thefeeble coupling between matter
+    and gravity, very strong gravitational environments provide thehighest quality of information regarding
+    surrounding fundamental fields. To that end, the primaryobjective of this thesis is to generate models
+    of dark matter interacting with highly dynamical blackhole systems and forecast potential observability
+    using upcoming gravitational wave observatories. Several studies and tools were developed to further
+    this goal, culminating in new numerical relativ-ity toolkits, parameter constraints, and theoretical
+    results. While much more work still needs to bedone to fully leverage the prowess of upcoming gravitational
+    wave observatories, the work in thisthesis provides great advancements and powerful tools in the pursuit
+    of understanding the funda-mental building blocks of the universe.
+- id: '2304.14129'
+  title: Detecting fundamental vector fields with LISA
+  authors:
+  - S. D. B. Fell
+  - L. Heisenberg
+  - D. Veske
+  year: 2023
+  date: '2023-04-27'
+  type: article
+  venue: Physical Review D
+  volume: '108'
+  pages: 083010
+  doi: 10.1103/physrevd.108.083010
+  arxiv: '2304.14129'
+  inspire: 2654794
+  citations: 20
+  url: https://arxiv.org/abs/2304.14129
+  featured: true
+  hidden: false
+  thumbnail: /assets/img/publications/2304.14129.png
+  description: Space-based gravitational-wave detectors could double as dark matter experiments. We model
+    how a cloud of dark photons grown by a spinning supermassive black hole alters the orbit of a small
+    companion, and show that LISA could use these signals to constrain the dark photon's mass.
+  abstract: The advent of gravitational wave astronomy has seen a huge influx of new predictions for potential
+    discoveries of beyond the Standard Model fields. The coupling of all fundamental fields to gravity,
+    together with its dominance on large scales, makes gravitational physics a rich laboratory to study
+    fundamental physics. This holds especially true for the search for the elusive dark photon, a promising
+    dark matter candidate. The dark photon is predicted to generate instabilities in a rotating black
+    hole spacetime, birthing a macroscopic Bose-Einstein condensate. These condensates can especially
+    form around super massive black holes, modifying the dynamical inspiralling process. This then opens
+    another window to leverage future space-borne gravitational wave antennas to join the hunt for the
+    elusive dark matter particle. This study builds a preliminary model for the gravitational waveform
+    emitted by such a dressed extreme mass-ratio inspiral. Comparing these waveforms to the vacuum scenario
+    allows projections to the potential constrainability on the dark photon mass by space-borne gravitational
+    wave antennas. The superradiant instability of a massive vector field on a Kerr background is calculated
+    and, under reasonable approximations, the backreaction on the orbit of an inspiralling solar mass-scale
+    compact object due to the secular evolution of the resulting boson cloud is determined. The end result
+    is the projection that the LISA mission should be able to constrain the dark photon mass using extreme
+    mass ratio inspirals in the range [1.8 times 10^{-17}, 4.47 times 10^{-16}] eV.
+- id: '2201.11634'
+  title: Gravitational Waves in Full, Non-Linear General Relativity
+  authors:
+  - F. D'Ambrosio
+  - S. D. B. Fell
+  - L. Heisenberg
+  - D. Maibach
+  - S. Zentarra
+  - J. Zosso
+  year: 2022
+  date: '2022-01-27'
+  type: preprint
+  arxiv: '2201.11634'
+  inspire: 2020688
+  citations: 18
+  url: https://arxiv.org/abs/2201.11634
+  featured: false
+  hidden: false
+  thumbnail: /assets/img/publications/2201.11634.png
+  description: A student-friendly set of lecture notes on gravitational waves in full, non-linear general
+    relativity. From the Newman-Penrose formalism to the structure of null infinity and the BMS group,
+    with worked examples and exercises throughout.
+  abstract: These notes provide a student-friendly introduction to the theory of gravitational waves in
+    full, non-linear general relativity (GR). We aim for a balance between physical intuition and mathematical
+    rigor and cover topics such as the Newman-Penrose formalism, electromagnetic waves, asymptotically
+    Minkowski spacetimes, the peeling theorem, the universal structure of null infinity, the Bondi-Metzner-Sachs
+    group, and the definition of radiative modes in linear as well as in non-linear GR. Many exercises
+    and some explicitly calculated examples complement the abstract theory and are designed to help students
+    build up their intuition and see the mathematical machinery at work.
+- id: '2109.03174'
+  title: Black holes in f(Q) gravity
+  authors:
+  - F. D'Ambrosio
+  - S. D. B. Fell
+  - L. Heisenberg
+  - S. Kuhn
+  year: 2022
+  date: '2021-09-07'
+  type: article
+  venue: Physical Review D
+  volume: '105'
+  pages: '024042'
+  doi: 10.1103/physrevd.105.024042
+  arxiv: '2109.03174'
+  inspire: 1918134
+  citations: 266
+  url: https://arxiv.org/abs/2109.03174
+  featured: true
+  hidden: false
+  thumbnail: /assets/img/publications/2109.03174.png
+  description: General relativity can be rewritten in terms of non-metricity instead of curvature, and
+    its non-linear extension f(Q) changes the physics. We derive the most general static, spherically
+    symmetric geometries in f(Q) gravity and prove that it admits both GR-like and genuinely new black
+    hole solutions, settling a debate in the literature.
+  abstract: We systematically study the field equations of f(Q) gravity for spherically symmetric and
+    stationary metric-affine spacetimes. Such spacetimes are described by a metric as well as a flat and
+    torsionless affine connection. In the Symmetric Teleparallel Equivalent of GR (STEGR), the connection
+    is pure gauge and hence unphysical. However, in the non-linear extension f(Q), it is promoted to a
+    dynamical field which changes the physics. Starting from a general metric-affine geometry, we construct
+    the most general static and spherically symmetric forms of the metric and the affine connection. We
+    then use these symmetry reduced geometric objects to prove that the field equations of f(Q) gravity
+    admit GR solutions as well as beyond-GR solutions, contrary to what has been claimed in the literature.
+    We formulate precise criteria, under which conditions it is possible to obtain GR solutions and under
+    which conditions it is possible to obtain beyond-GR solutions. We subsequently construct several perturbative
+    corrections to the Schwarzschild solution for different choices of f(Q), which in particular include
+    a hair stemming from the now dynamical affine connection. We also present an exact beyond-GR vacuum
+    solution. Lastly, we apply this method of constructing spherically symmetric and stationary solutions
+    to f(T) gravity, which reproduces similar solutions but without a dynamical connection.
+- id: '2104.06488'
+  title: Positive energy warp drive from hidden geometric structures
+  authors:
+  - S. D. B. Fell
+  - L. Heisenberg
+  year: 2021
+  date: '2021-04-13'
+  type: article
+  venue: Classical and Quantum Gravity
+  volume: '38'
+  pages: '155020'
+  doi: 10.1088/1361-6382/ac0e47
+  arxiv: '2104.06488'
+  inspire: 1858216
+  citations: 32
+  url: https://arxiv.org/abs/2104.06488
+  featured: true
+  hidden: false
+  thumbnail: /assets/img/publications/2104.06488.png
+  description: Warp drives have long been thought to require enormous amounts of negative energy. By uncovering
+    a hidden geometric structure in the energy of these spacetimes, we construct superluminal warp bubbles
+    sourced entirely by positive energy, with total energy requirements four orders of magnitude below
+    a solar mass.
+  abstract: Warp drives in Einstein's general theory of relativity provide a unique mechanism for manned
+    interstellar travel. It is well-known that the classical superluminal soliton spacetimes require negative
+    energy densities, likely sourced by quantum processes of the uncertainty principle. It has even been
+    claimed by few that negative energy densities are a requirement of superluminal motion. However, recent
+    studies suggest this may not be the case. A general decomposition of the defining variables and the
+    corresponding decomposition of the Eulerian energy are studied. A geometrical interpretation of the
+    Eulerian energy is found, shedding new light on superluminal solitons generated by realistic energy
+    distributions. With this new interpretation, it becomes a relatively simple matter to generate solitonic
+    configurations, within a certain subclass, that respect the positive energy constraint. Using this
+    newfound interpretation, a superluminal solitonic spacetime is presented that possesses positive semi-definite
+    energy. A modest numerical analysis is carried out on a set of example configurations, finding total
+    energy requirements four orders of magnitude smaller than the solar mass. Extraordinarily, the example
+    configurations are generated by purely positive energy densities, a tremendous improvement on the
+    classical configurations. The geometrical interpretation of the Eulerian energy thus opens new doors
+    to generating realistic warp fields for laboratory study and potential future manned interstellar
+    travel.

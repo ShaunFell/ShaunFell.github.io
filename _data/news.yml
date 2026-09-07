@@ -1,0 +1,13 @@
+# Short dated updates for the home page. Newest first; "when" is free text.
+- when: August 2026
+  text: New preprint with Abraham Loeb on the radiative signatures of warp drives passing through Earth's atmosphere.
+  url: https://arxiv.org/abs/2608.10800
+- when: 2024
+  text: Joined Applied Physics as Lead Scientist.
+  url: https://appliedphysics.org
+- when: 2024
+  text: Completed my PhD at Heidelberg University with the thesis "Celestial Beacons".
+  url: https://doi.org/10.11588/heidok.00035613
+- when: May 2024
+  text: GRBoondi, my numerical relativity code for generalized Proca fields, is published in the Journal of Open Source Software.
+  url: https://joss.theoj.org/papers/10.21105/joss.06888

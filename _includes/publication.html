@@ -1,0 +1,46 @@
+{%- comment -%}
+  Renders one publication card. Usage:
+    {% include publication.html pub=p %}
+  Optional: compact=true for the CV list.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- assign me = site.data.profile.short_name -%}
+{%- assign thumb = pub.thumbnail -%}
+{%- if include.compact -%}
+<li class="pub-compact">
+  <span class="pub-compact__title"><a href="{{ pub.url }}" rel="noopener" target="_blank">{{ pub.title }}</a></span>
+  <span class="pub-compact__meta">
+    {%- for a in pub.authors -%}{%- if a contains 'Fell' -%}<strong>{{ a }}</strong>{%- else -%}{{ a }}{%- endif -%}{%- unless forloop.last %}, {% endunless -%}{%- endfor -%}.
+    {% if pub.venue %}<em>{{ pub.venue }}</em>{% if pub.volume %} {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} ({{ pub.year }}){% else %}{{ pub.year }}{% endif %}
+    {%- if pub.arxiv %} &middot; <a href="https://arxiv.org/abs/{{ pub.arxiv }}" rel="noopener" target="_blank">arXiv:{{ pub.arxiv }}</a>{% endif -%}
+    {%- if pub.doi %} &middot; <a href="https://doi.org/{{ pub.doi }}" rel="noopener" target="_blank">doi</a>{% endif -%}
+  </span>
+</li>
+{%- else -%}
+<article class="pub" data-type="{{ pub.type }}" data-year="{{ pub.year }}">
+  <a class="pub__thumb" href="{{ pub.url }}" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">
+    {% if thumb %}<img src="{{ thumb | relative_url }}" alt="" loading="lazy" width="200" height="260">{% else %}<span class="pub__thumb-placeholder"></span>{% endif %}
+  </a>
+  <div class="pub__body">
+    <div class="pub__badges">
+      <span class="badge badge--{{ pub.type }}">{% if pub.type == 'article' %}Journal article{% elsif pub.type == 'preprint' %}Preprint{% elsif pub.type == 'thesis' %}Thesis{% elsif pub.type == 'software' %}Software paper{% elsif pub.type == 'book' %}Book{% else %}{{ pub.type }}{% endif %}</span>
+      {% if pub.citations and pub.citations > 0 %}<span class="badge badge--muted" title="Citations on INSPIRE-HEP">{{ pub.citations }} citation{% if pub.citations != 1 %}s{% endif %}</span>{% endif %}
+    </div>
+    <h3 class="pub__title"><a href="{{ pub.url }}" rel="noopener" target="_blank">{{ pub.title }}</a></h3>
+    <p class="pub__authors">
+      {%- for a in pub.authors -%}{%- if a contains 'Fell' -%}<strong>{{ a }}</strong>{%- else -%}{{ a }}{%- endif -%}{%- unless forloop.last %}, {% endunless -%}{%- endfor -%}
+    </p>
+    <p class="pub__venue">
+      {%- if pub.venue -%}<em>{{ pub.venue }}</em>{% if pub.volume %} {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} ({{ pub.year }}){%- else -%}{{ pub.year }}{%- endif -%}
+    </p>
+    {% if pub.description %}<p class="pub__desc">{{ pub.description }}</p>{% endif %}
+    <ul class="pub__links">
+      {% if pub.arxiv %}<li><a href="https://arxiv.org/abs/{{ pub.arxiv }}" rel="noopener" target="_blank"><svg class="icon"><use href="#i-arxiv"/></svg>arXiv</a></li>{% endif %}
+      {% if pub.doi %}<li><a href="https://doi.org/{{ pub.doi }}" rel="noopener" target="_blank"><svg class="icon"><use href="#i-doc"/></svg>Publisher</a></li>{% endif %}
+      {% if pub.code %}<li><a href="{{ pub.code }}" rel="noopener" target="_blank"><svg class="icon"><use href="#i-code"/></svg>Code</a></li>{% endif %}
+      {% if pub.inspire %}<li><a href="https://inspirehep.net/literature/{{ pub.inspire }}" rel="noopener" target="_blank"><svg class="icon"><use href="#i-inspire"/></svg>INSPIRE</a></li>{% endif %}
+      {% if pub.arxiv %}<li><a href="https://arxiv.org/pdf/{{ pub.arxiv }}" rel="noopener" target="_blank"><svg class="icon"><use href="#i-doc"/></svg>PDF</a></li>{% endif %}
+    </ul>
+  </div>
+</article>
+{%- endif -%}

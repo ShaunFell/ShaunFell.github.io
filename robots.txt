@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shaundbfell.com/sitemap.xml

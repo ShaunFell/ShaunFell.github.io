@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="essay">
+  <header class="essay__hero"{% if page.image %} style="--hero-image: url('{{ page.image | relative_url }}')"{% endif %}>
+    <div class="container container--narrow">
+      <p class="essay__kicker">Writing</p>
+      <h1 class="essay__title">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="essay__subtitle">{{ page.subtitle }}</p>{% endif %}
+      <p class="essay__meta">
+        {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %Y" }}</time> &middot; {% endif %}
+        {% assign words = content | strip_html | number_of_words %}{{ words | divided_by: 220 | plus: 1 }} min read
+      </p>
+    </div>
+  </header>
+  <div class="container container--narrow">
+    <div class="prose prose--essay">
+      {{ content }}
+    </div>
+    {% if page.image_credit %}<p class="essay__credit">Header image: {{ page.image_credit }}</p>{% endif %}
+    <nav class="essay__more" aria-label="More writing">
+      <h2 class="section__title section__title--small">More writing</h2>
+      <ul class="card-grid card-grid--3">
+        {% for e in site.writing %}{% if e.url != page.url %}
+        <li class="card">
+          <a class="card__link" href="{{ e.url | relative_url }}">
+            {% if e.image %}<img class="card__image" src="{{ e.image | relative_url }}" alt="" loading="lazy">{% endif %}
+            <span class="card__body"><span class="card__title">{{ e.title }}</span><span class="card__text">{{ e.subtitle }}</span></span>
+          </a>
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+    </nav>
+  </div>
+</article>

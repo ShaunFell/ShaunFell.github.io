@@ -1,0 +1,82 @@
+# Everything on the site that is "about you" lives here. Edit freely.
+name: Shaun D. B. Fell
+short_name: Shaun Fell
+title: Theoretical physicist
+position: Lead Scientist
+affiliation: Applied Physics
+affiliation_url: https://appliedphysics.org
+photo: /assets/img/profile.jpg
+photo_alt: Portrait of Shaun Fell
+
+# One sentence shown under your name on the home page.
+pitch: >-
+  I study gravity at its extremes: black holes, the fundamental fields that
+  might surround them, and the geometry of spacetimes we would one day like to
+  build ourselves.
+
+# A few paragraphs for the "About" section. Markdown is allowed.
+about: |
+  I am a theoretical physicist working at the intersection of general
+  relativity, particle physics and high-performance computing. My research asks
+  what black holes can tell us about physics beyond the Standard Model, and
+  whether spacetime itself can be engineered.
+
+  I completed my PhD at the Institute for Theoretical Physics in Heidelberg,
+  where I studied superradiant instabilities of massive vector fields around
+  rotating black holes and their gravitational-wave signatures for LISA. Along
+  the way I wrote [GRBoondi](https://github.com/ShaunFell/GRBoondi), an
+  open-source numerical relativity code for evolving generalized Proca fields
+  on arbitrary backgrounds. Before Heidelberg I studied at ETH Zurich, where my
+  master's thesis uncovered a hidden geometric structure in warp drive
+  spacetimes, and at the University of Washington.
+
+  Today I lead research on applications of gravity to geophysical sciences, projects on fully-homomorphic encryption,
+  warp drive physics and related questions in
+  spacetime engineering at Applied Physics, and much more.
+
+# Links shown as icon buttons. Remove any you do not want.
+links:
+  - label: Email
+    icon: mail
+    url: mailto:shaundbfell@gmail.com
+  - label: arXiv
+    icon: arxiv
+    url: "https://arxiv.org/search/?searchtype=author&query=Fell%2C+S+D+B"
+  - label: ORCID
+    icon: orcid
+    url: https://orcid.org/0000-0002-8059-0359
+  - label: GitHub
+    icon: github
+    url: https://github.com/ShaunFell
+  - label: LinkedIn
+    icon: linkedin
+    url: https://www.linkedin.com/in/shaun-db-fell
+
+
+# Optional: path to a PDF CV in the repo (e.g. /assets/cv.pdf). Leave blank to hide.
+cv_pdf: ""
+
+research:
+  - title: Black holes as particle detectors
+    image: /assets/img/research/eht-m87.jpg
+    image_credit: EHT Collaboration
+    summary: >-
+      Ultralight bosons can grow exponentially around spinning black holes
+      through superradiance. I study massive vector (Proca) fields in this
+      regime, from their nonlinear evolution to the gravitational waves that
+      LISA could use to detect them.
+    link: /publications/
+  - title: Numerical relativity and open software
+    image: /assets/img/research/gravity-well.jpg
+    summary: >-
+      Strong-field gravity rarely yields to pen and paper. I build simulation
+      tools, including GRBoondi, an open-source code for evolving generalized
+      Proca theories on arbitrary spacetime backgrounds.
+    link: https://github.com/ShaunFell/GRBoondi
+  - title: Warp drives and spacetime engineering
+    image: /assets/img/research/warp-bubble.png
+    summary: >-
+      Can we choose the shape of spacetime and ask what matter would produce it?
+      My work uncovered hidden geometric structure in warp drive spacetimes and
+      now explores their observable signatures.
+    link: /writing/warp-drives/

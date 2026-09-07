@@ -1,0 +1,21 @@
+<footer class="site-footer" id="contact">
+  <div class="container site-footer__inner">
+    <div>
+      <h2 class="site-footer__title">Get in touch</h2>
+      <p class="site-footer__text">
+        The best way to reach me is by email at
+        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>.
+        I am always happy to talk about gravity, numerical relativity, or collaborations.
+      </p>
+      <ul class="link-list" aria-label="Profiles">
+        {% for l in site.data.profile.links %}
+        <li><a href="{{ l.url }}" {% unless l.url contains 'mailto:' %}rel="me noopener" target="_blank"{% endunless %}><svg class="icon"><use href="#i-{{ l.icon }}"/></svg><span>{{ l.label }}</span></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="site-footer__meta">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.data.profile.name }}.</p>
+      <p>Publication list updated automatically from <a href="https://inspirehep.net" rel="noopener" target="_blank">INSPIRE-HEP</a>. <a href="{{ '/feed.xml' | relative_url }}">RSS</a> &middot; <a href="https://github.com/ShaunFell/ShaunFell.github.io" rel="noopener" target="_blank">Source</a></p>
+    </div>
+  </div>
+</footer>

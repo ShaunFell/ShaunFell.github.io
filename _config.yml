@@ -1,5 +1,82 @@
+# Site settings ---------------------------------------------------------------
+title: Shaun D. B. Fell
+tagline: Theoretical physicist
+description: >-
+  Shaun Fell is a theoretical physicist working on black holes, fundamental
+  fields, numerical relativity and the geometry of warp drives.
+url: "https://shaundbfell.com"
+baseurl: ""
+lang: en
+timezone: UTC
+
+author:
+  name: Shaun D. B. Fell
+  email: shaundbfell@gmail.com
+logo: /assets/img/profile.jpg
+social:
+  name: Shaun D. B. Fell
+  links:
+    - https://orcid.org/0000-0002-8059-0359
+    - https://github.com/ShaunFell
+    - https://www.linkedin.com/in/shaun-db-fell
+    - https://inspirehep.net/authors?q=a%20S.D.B.Fell.1
+
+# Publication automation ------------------------------------------------------
+# Used by scripts/update_publications.py. The INSPIRE "BAI" is the stable
+# author identifier INSPIRE-HEP assigns; find yours at
+# https://inspirehep.net/authors?q=<your name>  (it looks like S.D.B.Fell.1).
+publications:
+  inspire_bai: S.D.B.Fell.1
+  orcid: 0000-0002-8059-0359
+  data_file: _data/publications.yml
+  thumbnail_dir: assets/img/publications
+  featured_count: 5
+  # Only needed if the Anthropic API key is an organisation-level key rather
+  # than one created inside a workspace (Console -> Settings -> Workspaces).
+  anthropic_workspace_id: ""
+
+# Build settings --------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+permalink: pretty
+
 plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-feed
-title: Shaun Fell arXiv Feed
-description: A feed of interesting arXiv publications
-author: Shaun Fell
+
+feed:
+  collections:
+    - writing
+
+collections:
+  writing:
+    output: true
+    permalink: /writing/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: writing
+    values:
+      layout: essay
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts
+  - vendor
+  - node_modules
+  - .github
+  - LICENSE
