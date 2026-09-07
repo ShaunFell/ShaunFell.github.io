@@ -15,13 +15,6 @@
   inspire: 3190030
   citations: 0
   url: https://arxiv.org/abs/2608.10800
-  featured: true
-  hidden: false
-  thumbnail: /assets/img/publications/2608.10800.png
-  description: If a warp drive ever flew through Earth's atmosphere, would we notice? Our simulations
-    show that a bubble of warped spacetime moving at relativistic speed would light up the air around
-    it with more than a terawatt of power, giving spacetime-based propulsion a distinctive and searchable
-    signature.
   abstract: We investigate the observable signatures of zero ADM mass warp drive spacetimes traversing
     Earth's atmosphere. Numerical simulations indicate that an aircraft-scale spacetime bubble moving
     at relativistic velocities would have a pronounced observational signature, where interaction with
@@ -31,6 +24,13 @@
     terrestrial environment and provide a framework for identifying potential high-velocity signatures.
     In particular, a warp drive traveling through the atmosphere at speeds exceeding approximately 10%
     of the speed of light would produce a unique brilliant glow.
+  description: 'If exotic warp-drive propulsion were ever operating near Earth, it should not be able
+    to hide: we simulated how a small, aircraft-sized spacetime bubble would sweep up and energize the
+    air around it. Above roughly a tenth of the speed of light the interaction releases more than a trillion
+    watts, producing an unmistakable glow, while slow-moving bubbles stay dark.'
+  thumbnail: /assets/img/publications/2608.10800.png
+  featured: false
+  hidden: false
 - id: '2406.11299'
   title: Proca in an Expanding Universe
   authors:
