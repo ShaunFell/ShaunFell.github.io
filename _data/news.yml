@@ -1,6 +1,9 @@
 # Short dated updates for the home page. Newest first; "when" is free text.
+- when: August 27, 2026
+  text: New article written on my warp drive paper with Avi Loeb
+  url: https://thedebrief.org/physicists-reveal-possible-connection-between-warp-drive-spacecraft-and-phenomena-detailed-in-recent-pentagon-releases/
 - when: August 2026
-  text: New preprint with Abraham Loeb on the radiative signatures of warp drives passing through Earth's atmosphere.
+  text: New preprint with Avi Loeb on the radiative signatures of warp drives passing through Earth's atmosphere.
   url: https://arxiv.org/abs/2608.10800
 - when: 2024
   text: Joined Applied Physics as Lead Scientist.
