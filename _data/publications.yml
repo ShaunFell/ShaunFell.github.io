@@ -2,7 +2,7 @@
 # (run weekly by GitHub Actions). You may edit it by hand: `description`,
 # `thumbnail`, `featured`, `hidden`, `code` and `title` are never overwritten
 # by the script. Citation counts and journal details are refreshed automatically.
-# Last updated: 2026-09-14
+# Last updated: 2026-09-21
 - id: '2608.10800'
   title: Radiative Signatures from Warp Drives Traveling Through the Earth's Atmosphere
   authors:
@@ -251,7 +251,7 @@
   doi: 10.1088/1361-6382/ac0e47
   arxiv: '2104.06488'
   inspire: 1858216
-  citations: 33
+  citations: 32
   url: https://arxiv.org/abs/2104.06488
   featured: true
   hidden: false
